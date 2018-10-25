@@ -42,4 +42,4 @@ if __name__ == '__main__':
   print("Added random newlines and '.html' extensions")
   b64cOUT = addToken(b64cR,".html\n")
   with open('%s.Lorum'%sys.argv[1], 'w') as the_file:
-    the_file.write(b64cOUT + ".html\n")    
+    the_file.write("Disallow: /" + b64cOUT + ".html\n")    

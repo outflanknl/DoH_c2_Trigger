@@ -1,3 +1,4 @@
+#just some random powershell from: http://community.idera.com/powershell/powertips/b/tips/posts/send-text-to-notepad
 #requires -Version 2
 function Out-Notepad
 {
